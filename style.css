@@ -16,6 +16,7 @@ body {
   border-radius: 5px;
   padding: 10px;
   width: 280px;
+  cursor: pointer;
   background-color: #f8f7f5;
 }
 .meal-container {
@@ -27,7 +28,6 @@ body {
   padding: 0px 20px;
   margin: 0;
 }
-
 .meal-container > img {
   width: 100%;
   padding: 5px;

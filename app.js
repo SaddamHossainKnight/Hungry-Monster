@@ -9,8 +9,8 @@ const getMealData = search => {
 const searchBtn = document.getElementById('search_button');
 searchBtn.addEventListener('click', () => {
     const inputMeal = document.getElementById('search').value;
-    if (inputMeal.match(/^[0-9]+$/) || inputMeal ==="") {
-        document.getElementById('error').innerText = "Please input only List all meals by first letter!";
+    if (inputMeal.match(/^[0-9]+$/) || inputMeal ==="" || inputMeal.length > 1) {
+        document.getElementById('error').innerText = "Please input only first letter !";
     }else{
         document.getElementById('error').style.display ="none";
         getMealData(inputMeal);
