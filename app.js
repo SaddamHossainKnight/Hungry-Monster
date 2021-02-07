@@ -1,3 +1,4 @@
+// Search functionality Code here
 const apiBase = 'https://www.themealdb.com/api/json/v1/1/search.php';
 const getMealData = search => {
     const url = `${apiBase}?f=${search}`
@@ -8,12 +9,18 @@ const getMealData = search => {
 const searchBtn = document.getElementById('search_button');
 searchBtn.addEventListener('click', () => {
     const inputMeal = document.getElementById('search').value;
-    getMealData(inputMeal);
+    if (inputMeal.match(/^[0-9]+$/) || inputMeal ==="") {
+        document.getElementById('error').innerText = "Please input only List all meals by first letter!";
+    }else{
+        document.getElementById('error').style.display ="none";
+        getMealData(inputMeal);
+    }
 })
+// Meals List Functionality Code here
 updateMeal = meals => {
     const mealsDiv = document.getElementById('show-meals');
     meals.forEach(meal => {
-        const mealDiv = document.createElement('div') || "Unknown Location!";
+        const mealDiv = document.createElement('div');
         mealDiv.className = 'meal';
         const mealDetails = `
             <div onclick='displayMealDetails("${meal.strMeal}")'>
@@ -25,6 +32,7 @@ updateMeal = meals => {
         mealsDiv.appendChild(mealDiv);
     });
 }
+// Meals Details Functionality Code here
 const displayMealDetails = name => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
     fetch(url)
@@ -44,5 +52,6 @@ const mealDetails = meal => {
             <p>${meal.strIngredient4}</p>
             <p>${meal.strIngredient5}</p>
             <p>${meal.strIngredient6}</p>
+            <p>etc...</p>
         </div> `
 }
