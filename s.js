@@ -1,0 +1,22 @@
+const apiKey = 'b6cc4392568a3586e950307c86a22bbd';
+const apiBase = 'https://api.openweathermap.org/data/2.5/weather';
+
+const getWeatherData = city => {
+    const url = `${apiBase}?q=${city}&units=metric&appid=${apiKey}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => updateUI(data))
+}
+
+const searchBtn = document.getElementById('search_button');
+searchBtn.addEventListener('click', () => {
+    const inputCity = document.getElementById('city').value;
+    getWeatherData(inputCity)
+})
+
+const updateUI = data => {
+    document.getElementById('show_city').innerText = data.name || "Unknown Location!";
+    document.getElementById('weather_status').innerText = data.weather[0].main;
+}
+
+getWeatherData('Dhaka');
