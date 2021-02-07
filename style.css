@@ -8,8 +8,8 @@ body {
   grid-gap: 15px;
 }
 #error{
-    color:red;
-    text-align: center;
+  color:red;
+  text-align: center;
 }
 .meal,.meal-container {
   border: 1px solid #c5c5c5;

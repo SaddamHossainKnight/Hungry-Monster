@@ -26,8 +26,7 @@ updateMeal = meals => {
             <div onclick='displayMealDetails("${meal.strMeal}")'>
                 <img class='meal-image' src="${meal.strMealThumb}">
                 <h3 class='meal-name'>${meal.strMeal}</h3>
-            </div>
-        `
+            </div> `
         mealDiv.innerHTML = mealDetails;
         mealsDiv.appendChild(mealDiv);
     });
