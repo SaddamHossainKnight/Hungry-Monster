@@ -12,7 +12,6 @@ searchBtn.addEventListener('click', () => {
     if (inputMeal.match(/^[0-9]+$/) || inputMeal ==="") {
         document.getElementById('error').innerText = "Please input a valid Name or only first letter !";
     }else{
-        document.getElementById('search').innerText = "";
         document.getElementById('error').style.display ="none";
         getMealData(inputMeal);
     }
